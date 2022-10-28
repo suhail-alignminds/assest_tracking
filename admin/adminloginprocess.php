@@ -3,8 +3,8 @@
    require('../includes/config.php');
       if (!empty($_POST))
 	  {
-			$uname=$_POST['username'];
-			$q="select * from admin where username='$uname'";
+			$email=$_POST['email'];
+			$q="select * from users where email='$email'";
 			$res=mysqli_query($conn,$q)or die("wrong query");
 			$row=mysqli_fetch_assoc($res);
 			if(!empty($row))
@@ -19,8 +19,8 @@
 				else
 				{
 					$_SESSION=array();
-					$_SESSION['username']=$row['username'];
-					header("Location:admin_index.php");
+					$_SESSION['email']=$row['email'];
+					header("Location:dashboard.php");
 				}
 			}	
 			

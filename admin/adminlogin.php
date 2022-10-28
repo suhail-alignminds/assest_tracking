@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="../css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" href="../css/login.css">
 </head>
@@ -42,23 +43,28 @@
   <h4 class="header2">ADMIN LOGIN</h4>
   <h3 class="header3">Sign in to start your session</h3>
     <form class="form1">
-      <input class="un" type="text" name="username"   placeholder="Username">
+      <input class="un" type="email" name="email"   placeholder="Email">
       <input class="pass" type="password" name="password"  placeholder="Password">
        <input class="submit" type="submit" name="login" value="Login"><br><br>
-      <div>
+    
       <?php
 	session_start();
 if(isset($_GET['usr']))
 	{
 
-        echo '<center><font color="red" size="4">Incorrect User Name...</font></center>';
+    echo '
+    <div class="alert alert-danger" role="alert">
+          Wrong Username 
+    </div> ' ;
 			echo '<br><br>';
 	}
 	if(isset($_GET['pd']))
-	{
-
-        echo '<center><font color="red" size="4">Incorrect password...</font></center>';
-			echo '<br><br>';
+	{    echo '
+          <div class="alert alert-danger" role="alert">
+                Wrong Password
+          </div> ' ;
+        
+        
 	}
  
 ?>  
@@ -80,3 +86,6 @@ if(isset($_GET['usr']))
 
 
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
