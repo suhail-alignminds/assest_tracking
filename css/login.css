@@ -1,0 +1,128 @@
+body {
+    background-color: #F3EBF6;
+    font-family:  sans-serif;
+    background-image: url(../img/admin.jpg);
+    background-size: cover;
+}
+
+.main {
+    background-color: #ffffff;
+     width: 350px;
+    height: 400px;
+    margin: 7em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.header1 {
+    padding-top: 50px;
+    padding-left: 30px;
+    color: #080508;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: lighter;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.header2  {
+  
+     padding-left: 30px;
+    color: #26BFB1;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin:1%;
+}
+
+.header3 {
+    padding-top: 10px; 
+   padding-left: 30px;
+   color: #8b9292;
+   font-family: 'Ubuntu', sans-serif;
+   font-weight: lighter;
+   font-size: 13px;
+   
+}
+
+.header3{
+   padding-top: 10px; 
+   padding-left: 10px;
+   color: #101111;
+   font-family: 'Ubuntu', sans-serif;
+   font-weight: lighter;
+   font-size: 13px;
+
+}
+
+
+
+.un {
+    width: 90%;
+    color: rgb(0, 6, 8);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(96, 118, 243, 0.04);
+    padding: 10px 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family:  sans-serif;
+    }
+
+    form.form1 {
+        padding-top: 40px;
+		
+    }
+    
+    .pass {
+    width: 90%;
+    color: rgb(0, 6, 8);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(96, 118, 243, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+    }
+
+    .un:focus, .pass:focus {
+        border: 2px solid rgba(0, 0, 0, 0.18) !important;
+        
+    }
+    
+    .submit {
+      cursor: pointer;
+        border-radius: 5em;
+        color: #fff;
+        background: linear-gradient(to right,#04ac9e,#26BFB1);
+        border: 0;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-family: 'Ubuntu', sans-serif;
+        margin-left: 35%;
+        font-size: 13px;
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    }
+    
+  
