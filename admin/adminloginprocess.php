@@ -4,7 +4,7 @@
       if (!empty($_POST))
 	  {
 			$email=$_POST['email'];
-			$q="select * from users where email='$email'";
+			$q="select * from users where email='$email' AND user_role='admin' ";
 			$res=mysqli_query($conn,$q)or die("wrong query");
 			$row=mysqli_fetch_assoc($res);
 			if(!empty($row))

@@ -1,10 +1,10 @@
 <?php
 	include '../includes/config.php';
-	$id = $_REQUEST['id'];
+	$id = $_REQUEST['section_id'];
     $currentdate = date('Y-m-d');
   
 
-	$query = "UPDATE sections SET status = 'Active', modified_date='$currentdate' WHERE id = '$id'";
+	$query = "UPDATE sections SET status = 'Active', modified_date='$currentdate' WHERE id = '$section_id'";
 	
 	$result = $conn->query($query);
 	if($result === TRUE){

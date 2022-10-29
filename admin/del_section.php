@@ -1,7 +1,9 @@
 <?php
 	include '../includes/config.php';
-	$id= $_REQUEST['id'];
-		$query = "DELETE FROM sections WHERE id= '$id'";
+	$section_id= $_REQUEST['section_id'];
+		$query = "DELETE FROM sections WHERE section_id= '$section_id'";
+
+        
 	$result = $conn->query($query);
 	if($result === TRUE){
 		echo "<script type = \"text/javascript\">
