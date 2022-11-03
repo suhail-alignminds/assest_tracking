@@ -2,7 +2,7 @@
 
 include '../includes/config.php';
 $asset_id= $_REQUEST['asset_id'];
-$sql ="SELECT * FROM assets where asset_id='$asset_id'";
+$sql ="SELECT * FROM assets  join sections where assets.section_id = sections.section_id and  asset_id='$asset_id'";
 $qsql = mysqli_query($conn,$sql);
 while($rs = mysqli_fetch_array($qsql))
 
@@ -107,6 +107,18 @@ while($rs = mysqli_fetch_array($qsql))
 											<input class="form-control" type="text" value="<?php echo $asset_id?>" name="asset_id" readonly>
 										</div>
 									</div>
+                                    <div class="form-group row">
+										<label class="col-lg-3 col-form-label form-control-label">Section ID</label>
+										<div class="col-lg-9">
+											<input class="form-control" type="text" value="<?php echo $rs['section_id']?>" name="section_id" readonly>
+										</div>
+									</div>
+                                    <div class="form-group row">
+										<label class="col-lg-3 col-form-label form-control-label">Section Name</label>
+										<div class="col-lg-9">
+											<input class="form-control" type="text" value="<?php echo $rs['section_name']?>" name="section_name" readonly>
+										</div>
+									</div>
 									<div class="form-group row">
 										<label class="col-lg-3 col-form-label form-control-label">Description</label>
 										<div class="col-lg-9">
@@ -116,7 +128,7 @@ while($rs = mysqli_fetch_array($qsql))
 									<div class="form-group row">
 										<label class="col-lg-3 col-form-label form-control-label">Created Date</label>
 										<div class="col-lg-9">
-											<input class="form-control" type="text" value="<?php echo $rs['created_date'];?>" name="created_date">
+											<input class="form-control" type="text" value="<?php echo $rs['created_date'];?>" name="created_date" readonly>
 										</div>
 									</div>
 
@@ -139,6 +151,8 @@ while($rs = mysqli_fetch_array($qsql))
 									    mkdir($PNG_TEMP_DIR);
 
                                         $asset_name =$_POST["asset_name"];
+                                        $asset_id =$_POST["asset_id"];
+                                        $section_name =$_POST["section_name"];
 
 									$filename = $PNG_TEMP_DIR . '$asset_name.png';
 
@@ -147,11 +161,13 @@ while($rs = mysqli_fetch_array($qsql))
                                     $codeString ="Asset Information \n";
 									$codeString .=  "Asset Name -".$_POST["asset_name"] . "\n";
 									$codeString .= "Asset ID - ". $_POST["asset_id"] . "\n";
+                                    $codeString .= "Section ID - ". $_POST["section_id"] . "\n";
+                                    $codeString .= "Section Name - ". $_POST["section_name"] . "\n";
 									$codeString .= "Description -".  $_POST["description"] . "\n";
 									$codeString .= "Created Date  - ".  $_POST["created_date"] . "\n";
 									
 
-									$filename = $PNG_TEMP_DIR . $asset_name . md5($codeString) . '.png';
+									$filename = $PNG_TEMP_DIR . $asset_name . - $asset_id . '.png';
 
 									QRcode::png($codeString, $filename);
 

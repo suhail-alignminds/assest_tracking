@@ -114,11 +114,11 @@
                                           ?>
                                           <?php
                                        
-                                          if($rs['status'] == 'Active')
+                                          if($rs['section_status'] == 'Active')
                                           {
                                             echo "
                                             <td>
-                                            $rs[status] <span class='dot-green'></span>
+                                            $rs[section_status] <span class='dot-green'></span>
                                            
                                             </td>";
                                           }	 
@@ -126,7 +126,7 @@
                                           {
                                             echo "
                                             <td>
-                                            $rs[status] <span class='dot-red'></span>
+                                            $rs[section_status] <span class='dot-red'></span>
                                             
                                             </td>
                                             ";

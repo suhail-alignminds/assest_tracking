@@ -77,7 +77,7 @@
                     <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModalCenter">
                     <i class="fa-solid fa-add"></i> Add  Asset
                     </button>
-                    <a href="qrcode.php"  class="btn btn-success"><i class="fa fa-barcode" aria-hidden="true"></i> Generate QR Code </a>
+                    <!-- <a href="qrcode.php"  class="btn btn-success"><i class="fa fa-barcode" aria-hidden="true"></i> Generate QR Code </a> -->
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -224,11 +224,12 @@
                                         <tr>
                                             <th> ID</th>
                                             <th>Asset  Name</th>
-                                            <th>Description</th>
+                                            
+                                            <th>Section </th>
                                             <th>Created Date</th>
                                             <th>Modified Date</th>
                                             <th>Created By</th>
-                                            <th>Ref Num</th>
+
                                             <th>Status</th>
                                             <th>Action</th>
                                            
@@ -242,7 +243,7 @@
                 <?php 
                                           include '../includes/config.php';
                                   
-                                          $sql ="SELECT * FROM assets  ";
+                                          $sql ="SELECT * FROM assets join sections where assets.section_id= sections.section_id  ";
                                           
                                            
                                           $qsql = mysqli_query($conn,$sql);
@@ -253,12 +254,17 @@
                                           echo "<tr>
                       
                                           <td>&nbsp;$rs[asset_id]</td>	 
-                                          <td>&nbsp;$rs[asset_name]</td>
-                                          <td>&nbsp;$rs[description]</td>
+                                          <td>&nbsp;$rs[asset_name]<br>
+                                          &nbsp;$rs[description]</td>
+                                          <td>&nbsp;$rs[section_id]- <br> &nbsp;$rs[section_name]
+                                          
+                                          
+                                          </td> 
                                           <td>&nbsp;$rs[created_date]</td> 
                                           <td>&nbsp;$rs[modify_date]</td> 
+                                         
                                           <td>&nbsp;$rs[created_by]</td> 	
-                                          <td>&nbsp;$rs[asset_ref_num]</td> 		 
+                                         		 
                                         
                                     		 ";
                                           ?>

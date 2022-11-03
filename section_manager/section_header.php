@@ -63,8 +63,8 @@
                     <h6 class="collapse-header">Asset Module:</h6>
                     <a class="collapse-item" href="category.php">Add Category</a>
                     <a class="collapse-item" href="add_asset.php">Asset Master</a>
-                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                    <a class="collapse-item" href="utilities-other.html">Other</a>
+                    <!-- <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                    <a class="collapse-item" href="utilities-other.html">Other</a> -->
                 </div>
             </div>
         </li>
@@ -78,11 +78,11 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                aria-expanded="true" aria-controls="collapsePages">
+                <! aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-fw fa-folder"></i>
-                <span>Pages</span>
+                <span>Pages</span> -->
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
@@ -96,14 +96,14 @@
                     <a class="collapse-item" href="blank.html">Blank Page</a>
                 </div>
             </div>
-        </li>
+        </li> 
 
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
+ 
+        <!-- <li class="nav-item">
             <a class="nav-link" href="charts.html">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Charts</span></a>
-        </li>
+        </li> -->
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">

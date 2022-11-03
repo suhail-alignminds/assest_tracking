@@ -68,81 +68,10 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Add Section</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Asset Information</h1>
                     
                    
-                    <div class="card mb-4">
-                            <div class="card-body">
-                                <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModalCenter">
-                    <i class="fa-solid fa-add"></i> Add  Section
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Add Section</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                        <form  class="row g-3" method='POST' enctype="multipart/form-data" >
-                                        
-                        <div class="col-md-12">
-                        <label for="inputBookNameY" class="form-label">Section Name</label>
-                         <input type="text" class="form-control" id="inputBookNameY" name="section_name" placeholder="Enter Section Name">
-                       </div>
-                       <div class="col-md-12">
-                         <label for="inputPassword4Y" class="form-label">Section Ref Num</label>
-                         <input type="text" class="form-control" id="inputPassword4Y" name="sec_ref_num" placeholder="Ente Ref Number">
-                         
-                       </div>
-                      <div>
-                      <input type="submit" class="btn btn-success mr-5" name="submit" ></div>
-                     
-                       
-                        
-                      <?php
-                     if(isset($_POST["submit"]))
-                     {
-                       
-                       
-                         include '../includes/config.php';
-                         {
-                         
-                             $section_name = $_POST['section_name'];
-                             $sec_ref_num = $_POST['sec_ref_num'];
-                             $currentdate = date('Y-m-d');
-                         
-                            $sql="insert into sections(section_name,sec_ref_num,created_date,section_status) VALUES ('$section_name','$sec_ref_num',' $currentdate','Active')";
-                            if(mysqli_query($conn,$sql))
-                            {
-                           echo "<script type = \"text/javascript\">
-                                         alert(\"Succesfully Added\");
-                                         window.location = (\"add_section.php\")
-                                         
-                                         </script>";
-                                 
-                         }  
-                       else
-                       {
-                         echo mysqli_error($conn);
-                       }
-                     }
-                     mysqli_close($conn);
-                     }
-                     ?>
-                    </div>
-                    </div>
-                    
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    
+                   
 
                     <div class="card mb-4">
                             <div class="card-header">
@@ -155,13 +84,15 @@
                                     <thead>
                                         <tr>
                                             <th> ID</th>
-                                            <th>Section Name</th>
-                                            <th>Ref Num</th>
+                                            <th>Asset  Name</th>
+                                            
+                                            <th>Section </th>
                                             <th>Created Date</th>
                                             <th>Modified Date</th>
+                                            <th>Created By</th>
+
                                             <th>Status</th>
-                                            <th>Action</th>
-                                           
+                                          
                                           
                                            
                                         </tr>
@@ -172,7 +103,9 @@
                 <?php 
                                           include '../includes/config.php';
                                   
-                                          $sql ="SELECT * FROM sections ";
+                                          $sql ="SELECT * FROM assets join sections where assets.section_id= sections.section_id  ";
+                                          
+                                           
                                           $qsql = mysqli_query($conn,$sql);
                                           while($rs = mysqli_fetch_array($qsql))
                                           
@@ -180,19 +113,28 @@
                                         
                                           echo "<tr>
                       
-                                          <td>&nbsp;$rs[section_id]</td>	 
-                                          <td>&nbsp;$rs[section_name]</td>
-                                          <td>&nbsp;$rs[sec_ref_num]</td>
+                                          <td>&nbsp;$rs[asset_id]</td>	 
+                                          <td>&nbsp;$rs[asset_name]<br>
+                                          &nbsp;$rs[description]</td>
+                                          <td>&nbsp;$rs[section_id]- <br> &nbsp;$rs[section_name]
+                                          
+                                          
+                                          </td> 
                                           <td>&nbsp;$rs[created_date]</td> 
-                                          <td>&nbsp;$rs[modified_date]</td> 		 ";
+                                          <td>&nbsp;$rs[modify_date]</td> 
+                                         
+                                          <td>&nbsp;$rs[created_by]</td> 	
+                                         		 
+                                        
+                                    		 ";
                                           ?>
                                           <?php
                                        
-                                          if($rs['section_status'] == 'Active')
+                                          if($rs['status'] == 'Active')
                                           {
                                             echo "
                                             <td>
-                                            $rs[section_status] <span class='dot-green'></span>
+                                            $rs[status] <span class='dot-green'></span>
                                            
                                             </td>";
                                           }	 
@@ -200,41 +142,18 @@
                                           {
                                             echo "
                                             <td>
-                                            $rs[section_status] <span class='dot-red'></span>
+                                            $rs[status] <span class='dot-red'></span>
                                             
                                             </td>
                                             ";
                                           }  
                                         
-                                              
-                                                ?>
-                                                <?php
-
-                                                 if($rs['section_status'] == 'Active')
-                                                 {
-                                                   echo "
-                                                   <td>
-                                                   <a href='disable_section.php?section_id=$rs[section_id]' class='btn btn-outline-warning btn-sm'>  </i> Disable</a> &nbsp;&nbsp;
-                                                   <a href='del_section.php?section_id=$rs[section_id]' class='btn btn-danger btn-sm'>  <i class='fa fa-close'></i> Delete</a> </td>
-                                                  
-                                                   </td>";
-                                                 }	 
-                                                 else
-                                                 {
-                                                   echo "
-                                                   <td>
-                                                   <a href='active_section.php?section_id=$rs[section_id]' class='btn btn-outline-success btn-sm'>  </i> Active</a> &nbsp;&nbsp;
-                                                   <a href='del_section.php?section_id=$rs[section_id]' class='btn btn-danger btn-sm'>  <i class='fa fa-close'></i> Delete</a> </td>
-                                                    
-                                                 
-                                                   ";
-                                                 }  
-                                                 echo "
-                                             
-
-                                       
                                      
-                                         	</tr>"; 
+                                               
+                                        
+                                              
+                                     
+                                         
 				}
 				?>      </tbody>
 

@@ -4,7 +4,7 @@
     $currentdate = date('Y-m-d');
   
 
-	$query = "UPDATE sections SET status = 'Active', modified_date='$currentdate' WHERE id = '$section_id'";
+	$query = "UPDATE sections SET section_status = 'Active', modified_date='$currentdate' WHERE id = '$section_id'";
 	
 	$result = $conn->query($query);
 	if($result === TRUE){
