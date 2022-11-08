@@ -17,7 +17,7 @@ use PHPMailer\PHPMailer\Exception;
 			$email=$_POST['email'];
 			$currentdate = date('Y-m-d H:i:A');
 		
-			$q="select * from users where email='$email' AND user_role ='section_manager' ";
+			$q="select * from users where email='$email' AND user_role ='section_manager' and status='Active' ";
 			$res=mysqli_query($conn,$q)or die("wrong query");
 			$row=mysqli_fetch_assoc($res);
 			if(!empty($row))
@@ -83,7 +83,7 @@ $mail = new PHPMailer(true);
 	 
 	       else 
 	       {
-	      header("Location:student_login.php?usr=1");
+	      header("Location:section_login.php?usr=1");
 	      }
 	  }	  
 ?>	  

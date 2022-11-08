@@ -112,6 +112,12 @@
                 <span>Vendor</span></a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link" href="maintanance.php">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Maintanance</span></a>
+        </li>
+
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 

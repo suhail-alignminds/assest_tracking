@@ -45,7 +45,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Section Module:</h6>
                         <a class="collapse-item" href="add_section.php">Section Master</a>
-                        <!-- <a class="collapse-item" href="cards.html">View Session</a> -->
+                        <a class="collapse-item" href="section_manager.php">Section Manager Request</a>
+                        <a class="collapse-item" href="viewsection_manager.php">View Section Manager </a>
                     </div>
                 </div>
             </li>
@@ -98,12 +99,12 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+           
+             <li class="nav-item">
+                <a class="nav-link" href="view_maintenance.php">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li> -->
+                    <span>Maintenance Request</span></a>
+            </li> 
 
             <!-- Nav Item - Tables -->
             <!-- <li class="nav-item">

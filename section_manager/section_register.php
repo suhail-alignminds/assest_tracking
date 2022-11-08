@@ -104,7 +104,7 @@ if(isset($_POST["submit"]))
 
 
 		
-		$sql="insert into users(email,password,created_date,user_role)VALUES('$email','$password','$currentdate','section_manager')";
+		$sql="insert into users(email,password,created_date,user_role,status)VALUES('$email','$password','$currentdate','section_manager','pending')";
 		if(mysqli_query($conn,$sql))
         {
 
